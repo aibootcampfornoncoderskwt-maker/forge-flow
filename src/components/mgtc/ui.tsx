@@ -1,7 +1,17 @@
 import { Link } from "@tanstack/react-router";
+import type React from "react";
 import { ArrowRight } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+
+export const AnyLink = Link as unknown as React.ComponentType<{
+  to: string;
+  params?: Record<string, string>;
+  className?: string;
+  children?: ReactNode;
+  onClick?: () => void;
+  "aria-label"?: string;
+}>;
 
 const base =
   "group inline-flex min-h-12 items-center justify-center gap-2.5 px-6 text-[0.94rem] font-semibold tracking-tight transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98]";
@@ -22,7 +32,7 @@ export function ActionLink({
   children,
   arrow = true,
   ...props
-}: ComponentProps<typeof Link> & { variant?: ActionVariant; arrow?: boolean }) {
+}: Omit<ComponentProps<typeof Link>, "children"> & { variant?: ActionVariant; arrow?: boolean; children?: ReactNode }) {
   return (
     <Link className={cn(base, variants[variant], className)} {...props}>
       {children}
@@ -143,9 +153,9 @@ export function Breadcrumbs({ trail }: { trail: { label: string; to?: string; pa
         {trail.map((item, i) => (
           <li key={item.label} className="flex items-center gap-2">
             {item.to ? (
-              <Link to={item.to} params={item.params as never} className="transition-colors hover:text-primary">
+              <AnyLink to={item.to} params={item.params} className="transition-colors hover:text-primary">
                 {item.label}
-              </Link>
+              </AnyLink>
             ) : (
               <span className="text-navy">{item.label}</span>
             )}
