@@ -68,7 +68,7 @@ export const partsMenu: MenuGroup[] = [
   {
     heading: "Spare Parts",
     links: [
-      { label: "Forklift Spare Parts", to: "/spare-parts", hash: "forklift-spare-parts" } as MenuLink,
+      { label: "Forklift Spare Parts", to: "/spare-parts" },
       { label: "Material Handling Parts", to: "/spare-parts" },
       { label: "Maintenance Parts", to: "/spare-parts" },
     ],
