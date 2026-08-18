@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 
 export const AnyLink = Link as unknown as React.ComponentType<{
   to: string;
-  params?: Record<string, string>;
-  className?: string;
-  children?: ReactNode;
-  onClick?: () => void;
-  "aria-label"?: string;
+  params?: Record<string, string> | undefined;
+  className?: string | undefined;
+  children?: ReactNode | undefined;
+  onClick?: (() => void) | undefined;
+  "aria-label"?: string | undefined;
 }>;
 
 const base =
