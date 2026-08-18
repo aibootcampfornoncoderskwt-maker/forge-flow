@@ -77,21 +77,49 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "MGTC — Material Handling & Warehouse Solutions Kuwait" },
+      {
+        name: "description",
+        content:
+          "Modern Global Technologies Company (MGTC) supplies forklifts, warehouse systems, spare parts and industrial services across Kuwait.",
+      },
+      { name: "author", content: "Modern Global Technologies Company" },
+      { property: "og:site_name", content: "MGTC" },
+      { property: "og:title", content: "MGTC — Material Handling & Warehouse Solutions Kuwait" },
+      {
+        property: "og:description",
+        content: "Forklifts, warehouse systems, spare parts and industrial services in Kuwait.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Modern Global Technologies Company",
+          alternateName: "MGTC",
+          url: "https://www.mgtckw.com",
+          telephone: "+96555570617",
+          email: "info@mgtckw.com",
+          address: { "@type": "PostalAddress", addressLocality: "Fahaheel", addressCountry: "KW" },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
