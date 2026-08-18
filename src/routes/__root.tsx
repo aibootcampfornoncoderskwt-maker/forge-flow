@@ -10,6 +10,9 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { Header } from "@/components/mgtc/Header";
+import { Footer } from "@/components/mgtc/Footer";
+import { WhatsAppButton } from "@/components/mgtc/WhatsAppButton";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
